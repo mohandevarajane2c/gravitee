@@ -112,7 +112,7 @@ install()
 		;;
 		ol|centos|rhel)
 		        echo "Detected operating system as ${os} flow for install"
-			curl -L https://raw.githubusercontent.com/MohanDevarajan01/Learn01/main/install_redhat.sh | bash
+			curl -L https://raw.githubusercontent.com/mohandevarajane2c/gravitee/main/install_redhat.sh | bash
 		;;
     sles)
       curl -L https://raw.githubusercontent.com/gravitee-io/scripts/master/apim/3.x/sles/install_sles.sh | bash
