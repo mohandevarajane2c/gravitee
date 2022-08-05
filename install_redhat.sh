@@ -17,9 +17,9 @@ gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc" | sudo tee /etc/yum.re
 }
 
 install_elasticsearch() {
-    echo "[elasticsearch-8.x]
-name=Elasticsearch repository for 8.x packages
-baseurl=https://artifacts.elastic.co/packages/8.x/yum
+    echo "[elasticsearch-7.x]
+name=Elasticsearch repository for 7.x packages
+baseurl=https://artifacts.elastic.co/packages/7.x/yum
 gpgcheck=1
 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
 enabled=1
@@ -68,10 +68,6 @@ metadata_expire=300" | sudo tee /etc/yum.repos.d/graviteeio.repo > /dev/null
     sudo systemctl restart nginx
 }
 
-install_openjdk() {
-    sudo yum install -y java-11-openjdk-devel
-}
-
 install_tools() {
     os=`cat /etc/redhat-release  | awk '{ print tolower($1) }'`
     version=$(awk -F'=' '/VERSION_ID/{ gsub(/"/,""); print $2}' /etc/os-release | cut -d. -f1)
@@ -96,7 +92,6 @@ install_tools() {
 
 main() {
     install_tools
-    install_openjdk
     install_nginx
     install_mongo
     install_elasticsearch
