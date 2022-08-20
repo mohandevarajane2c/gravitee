@@ -121,3 +121,5 @@ main() {
     install_graviteeio
     install_corrections
 }
+
+main
