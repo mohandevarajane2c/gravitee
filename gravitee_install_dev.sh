@@ -7,14 +7,14 @@ update_yum() {
 install_java() {
     echo "==========Install Java========="
     wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
-	  rpm -Uvh jdk-17_linux-x64_bin.rpm
+    rpm -Uvh jdk-17_linux-x64_bin.rpm
     java -version
 }
 
 install_nginx() {
     echo "==========Install Nginx========="
     sudo yum install -y nginx
-	  printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
+    printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
 }
 
 install_mongo() {
