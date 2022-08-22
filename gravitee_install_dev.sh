@@ -5,6 +5,7 @@ update_yum() {
 }
 
 install_java() {
+    echo "==========Install Java========="
     wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
     rpm -Uvh jdk-17_linux-x64_bin.rpm
     java -version
@@ -94,7 +95,7 @@ install_tools() {
     sudo yum install -y policycoreutils-python-utils
 }
 
-install_corrections () {
+install_corrections() {
     
     echo "==========Making Firewall opening and json corrections ========="
     sudo firewall-cmd --permanent --zone=public --add-service=http
@@ -102,7 +103,6 @@ install_corrections () {
     sudo firewall-cmd --zone=public --add-port=8084/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=8085/tcp --permanent
     sudo firewall-cmd --reload
-    
 }
 
 main() {
