@@ -5,7 +5,6 @@ update_yum() {
 }
 
 install_java() {
-    echo "==========Install Java========="
     wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
     rpm -Uvh jdk-17_linux-x64_bin.rpm
     java -version
