@@ -110,6 +110,8 @@ install_corrections() {
     sudo sed -i -e 's/"baseURL": "\/portal\/environments\/DEFAULT"/"baseURL": "http:\/\/20.168.18.137:8083\/portal\/environments\/DEFAULT"/g' /opt/graviteeio/apim/portal-ui/assets/config.json
 #Portal_UI...config.prod.json
     sudo sed -i -e 's/"baseURL": "http:\/\/localhost:8083\/portal\/environments\/DEFAULT"/"baseURL": "http:\/\/20.168.18.137:8083\/portal\/environments\/DEFAULT"/g' /opt/graviteeio/apim/portal-ui/assets/config.json
+    
+    sudo systemctl restart nginx
 }
 
 main() {
