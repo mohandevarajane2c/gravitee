@@ -27,8 +27,8 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-6.0.repo > /dev/null
 
     sudo systemctl daemon-reload
-    sudo enable mongod
-    sudo start mongod
+    sudo systemctl enable mongod
+    sudo systemctl start mongod
 }
 
 install_elasticsearch() {
@@ -103,6 +103,13 @@ install_corrections() {
     sudo firewall-cmd --zone=public --add-port=8084/tcp --permanent
     sudo firewall-cmd --zone=public --add-port=8085/tcp --permanent
     sudo firewall-cmd --reload
+    
+#Management_UI...constants.json
+    sudo sed -i -e 's/"baseURL": "http:\/\/localhost:8083\/management\/organizations\/DEFAULT\/environments\/DEFAULT"/"baseURL": "http:\/\/20.168.18.137:8083\/management\/organizations\/DEFAULT\/environments\/DEFAULT"/g' /opt/graviteeio/apim/management-ui/constants.json
+#Portal_UI...config.json
+    sudo sed -i -e 's/"baseURL": "\/portal\/environments\/DEFAULT"/"baseURL": "http:\/\/20.168.18.137:8083\/portal\/environments\/DEFAULT"/g' /opt/graviteeio/apim/portal-ui/assets/config.json
+#Portal_UI...config.prod.json
+    sudo sed -i -e 's/"baseURL": "http:\/\/localhost:8083\/portal\/environments\/DEFAULT"/"baseURL": "http:\/\/20.168.18.137:8083\/portal\/environments\/DEFAULT"/g' /opt/graviteeio/apim/portal-ui/assets/config.json
 }
 
 main() {
