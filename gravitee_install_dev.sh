@@ -104,13 +104,6 @@ install_corrections () {
     sudo firewall-cmd --zone=public --add-port=8085/tcp --permanent
     sudo firewall-cmd --reload
     
-#    sudo sed -i -e  's\"baseURL\" : \"http:\/\/20.168.16.23:8083\/management\/organizations\/DEFAULT\/environments\/DEFAULT\",' /opt/graviteeio/apim/management-ui/constants.json
-#    sudo sed -i -e  \"baseURL\" : \"http:\/\/20.168.16.23:8083\/portal\/environments\/DEFAULT\",' /opt/graviteeio/apim/portal-ui/assets/config.json
-#    sudo sed -i -e  \"baseURL\" : \"http:\/\/20.168.16.23:8083\/portal\/environments\/DEFAULT\",' /opt/graviteeio/apim/portal-ui/assets/config.prod.json
-#    sudo sed -i -e "s/localhost/$(cat /tmp/curl_body)/g" /opt/graviteeio/apim/management-ui/constants.json
-#    's/"baseURL": "http:\/\/localhost:8083/"baseURL": "/g' /opt/graviteeio/apim/portal-ui/assets/config.json
-#    sudo systemctl restart nginx
-
 }
 
 main() {
